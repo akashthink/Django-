@@ -7,9 +7,28 @@
 </head>
 <body>
     {% if user.is_authenticated %}
+
+    {% if messages %}
+    <ul class="messages">
+    {% for message in messages %}
+    
+        {{ message }}
+    </li>
+    {% endfor %}
+</ul>
+{% endif %}
+
+
+
+
+
+
     <h1>Logged In</h1>   
+
+    
+    <a href="{% url 'logout-page'%}">Logout</a>
     {% else %}
-    <h1>Log In Again?</h1>   
+    <a href="{% url 'login-page'%}">Login</a>   
  {% endif %} 
 </body>
 </html>
